@@ -36,6 +36,7 @@ public class AudioSunBurst : MonoBehaviour
 	private AudioSource audio;
 	AudioReceiver audioreceiver;
 	MeshRenderer meshr;
+	public float sensitivity = 0.1f;
 	
 	#region Private functions
 	void ResetBeams ()
@@ -89,7 +90,7 @@ public class AudioSunBurst : MonoBehaviour
 			//var scale = Mathf.Pow (Mathf.PerlinNoise (time, i * indexToNoise), scalePower)*audioreceiver.loudness;;
 			//var scale = 1.0f + audioreceiver.volume*Mathf.PerlinNoise(time, i*indexToNoise)*3;
 			var scale = 1.0f;
-			beamWidth = audioreceiver.loudness*0.1f;
+			beamWidth = audioreceiver.loudness*sensitivity;
 			//audioreceiver.loudness
 			
 			// Never modify the first vertex.
@@ -150,6 +151,16 @@ public class AudioSunBurst : MonoBehaviour
 			iTween.ColorTo (gameObject, iTween.Hash("time", 3.0f, "NamedColorValue", "_Color", "easeType", "easeInOutQuad", "color", new Color(Random.value, Random.value, Random.value,1)));
 			//meshr.material.SetColor ("_Color", new Color(Random.value, Random.value, Random.value,1));
 			Debug.Log ("color change");
+		}
+		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+			sensitivity += 0.01f;
+			Debug.Log (sensitivity);
+		}
+		if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			if (sensitivity >= 0.01f) {
+				sensitivity -= 0.01f;
+				Debug.Log (sensitivity);
+			}
 		}
 
 	}

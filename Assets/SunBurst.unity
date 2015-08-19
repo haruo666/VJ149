@@ -198,6 +198,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syphonClients: []
   nullTexture: {fileID: 0}
+--- !u!1 &381776915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 381776917}
+  - 114: {fileID: 381776916}
+  m_Layer: 0
+  m_Name: SceneNavigator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &381776916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381776915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5c1cfc9e86842ac95e2966823c5152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &381776917
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381776915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -240.923065, y: 162.582489, z: 163.166748}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &1721115844
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +272,7 @@ MonoBehaviour:
   beamWidth: .100000001
   speed: .400000006
   scalePower: 1
+  sensitivity: .100000001
 --- !u!23 &1721115846
 MeshRenderer:
   m_ObjectHideFlags: 0
