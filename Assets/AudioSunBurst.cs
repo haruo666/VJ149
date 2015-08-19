@@ -37,6 +37,10 @@ public class AudioSunBurst : MonoBehaviour
 	AudioReceiver audioreceiver;
 	MeshRenderer meshr;
 	public float sensitivity = 0.1f;
+
+	// Camera
+	private Camera maincam;
+	private Vector3 camPosition;
 	
 	#region Private functions
 	void ResetBeams ()
@@ -121,6 +125,7 @@ public class AudioSunBurst : MonoBehaviour
 		// Initialize the beam array.
 		ResetBeams ();
 
+		maincam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera>();
 	}
 
 	void Start() 
@@ -151,6 +156,8 @@ public class AudioSunBurst : MonoBehaviour
 			iTween.ColorTo (gameObject, iTween.Hash("time", 3.0f, "NamedColorValue", "_Color", "easeType", "easeInOutQuad", "color", new Color(Random.value, Random.value, Random.value,1)));
 			//meshr.material.SetColor ("_Color", new Color(Random.value, Random.value, Random.value,1));
 			Debug.Log ("color change");
+		} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
+			changeCamPosition();
 		}
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			sensitivity += 0.01f;
@@ -164,5 +171,21 @@ public class AudioSunBurst : MonoBehaviour
 		}
 
 	}
+
+	private void changeCamPosition() {
+		Vector3 R = Random.onUnitSphere*10;
+		R.y = Mathf.Abs (R.y);
+		Vector3 center = new Vector3(0, 1, 0);
+		Debug.Log (R);
+		camPosition = center + R;
+		//maincam.transform.position = camPosition;
+		//maincam.transform.LookAt(center);
+		//iTween.MoveTo(maincam.gameObject, camPosition, 1);
+		//iTween.LookTo(maincam.gameObject, center, 1);
+		iTween.MoveTo(maincam.gameObject, iTween.Hash("x", camPosition.x, "y", camPosition.y, "z", camPosition.z, "time", 1.0f, "looktarget", center));
+		//maincam.transform.LookAt(center);
+		//iTween.LookTo(maincam.gameObject, center, 0.3f);
+	}
+
 	#endregion
 }

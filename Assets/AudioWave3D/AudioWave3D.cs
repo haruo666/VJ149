@@ -236,13 +236,13 @@ public class AudioWave3D : MonoBehaviour, AudioProcessor.AudioCallbacks {
 		Vector3 center = new Vector3(0, 0, 300);
 		Debug.Log (R);
 		camPosition = center + R;
-		maincam.transform.position = camPosition;
+		//maincam.transform.position = camPosition;
 		//maincam.transform.LookAt(center);
 		//iTween.MoveTo(maincam.gameObject, camPosition, 1);
 		//iTween.LookTo(maincam.gameObject, center, 1);
-		//iTween.MoveTo(maincam.gameObject, iTween.Hash("x", camPosition.x, "y", camPosition.y, "z", camPosition.z, "time", 1.0f));
+		iTween.MoveTo(maincam.gameObject, iTween.Hash("x", camPosition.x, "y", camPosition.y, "z", camPosition.z, "time", 0.6f, "looktarget", center));
 		//maincam.transform.LookAt(center);
-		iTween.LookTo(maincam.gameObject, center, 0.3f);
+		//iTween.LookTo(maincam.gameObject, center, 0.3f);
 	}
 	
 	float GetAveragedVolume()
