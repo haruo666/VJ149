@@ -41,7 +41,7 @@ public class AudioVisualizer : MonoBehaviour {
 		lr.SetVertexCount(count);
 
 		for(int k=0; k<count; k++) {
-			lr.SetPosition(k, new Vector3(-256 + 2*k, 300 * data[k], 200));
+			//lr.SetPosition(k, new Vector3(-256 + 2*k, 300 * data[k], 200));
 		}
 
 		/*
