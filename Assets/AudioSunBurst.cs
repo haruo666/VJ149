@@ -126,6 +126,8 @@ public class AudioSunBurst : MonoBehaviour
 		ResetBeams ();
 
 		maincam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera>();
+
+		Application.runInBackground = true;
 	}
 
 	void Start() 

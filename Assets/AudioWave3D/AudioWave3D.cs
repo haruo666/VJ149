@@ -47,7 +47,7 @@ public class AudioWave3D : MonoBehaviour, AudioProcessor.AudioCallbacks {
 		meshfilter.sharedMesh = mesh;
 		meshcollider = GetComponent<MeshCollider> ();
 		//rigidb = GetComponent<Rigidbody> ();
-		Application.targetFrameRate = 30;
+		//Application.targetFrameRate = 30;
 		Application.runInBackground = true;
 		maincam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera>();
 	}

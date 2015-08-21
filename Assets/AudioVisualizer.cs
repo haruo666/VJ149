@@ -32,7 +32,7 @@ public class AudioVisualizer : MonoBehaviour {
 		Debug.Log (volume);*/
 		
 		//float volume = GetAveragedVolume ();
-		Debug.Log (audioreceiver.loudness);
+		//Debug.Log (audioreceiver.loudness);
 		cube.transform.position = new Vector3 (0, audioreceiver.loudness * 5, 0);
 		//Debug.DrawLine (Vector3.zero, new Vector3 (1, 0, 0), Color.red);
 		float[] data = new float[256];
@@ -41,7 +41,7 @@ public class AudioVisualizer : MonoBehaviour {
 		lr.SetVertexCount(count);
 
 		for(int k=0; k<count; k++) {
-			lr.SetPosition(k, new Vector3(-256 + 2*k, 300 * data[k], 200));
+			//lr.SetPosition(k, new Vector3(-256 + 2*k, 300 * data[k], 200));
 		}
 
 		/*
