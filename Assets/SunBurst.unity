@@ -272,7 +272,7 @@ MonoBehaviour:
   beamWidth: .100000001
   speed: .400000006
   scalePower: 1
-  sensitivity: .100000001
+  sensitivity: .0500000007
 --- !u!23 &1721115846
 MeshRenderer:
   m_ObjectHideFlags: 0

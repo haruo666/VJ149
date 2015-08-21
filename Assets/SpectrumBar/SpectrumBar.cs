@@ -33,7 +33,7 @@ public class SpectrumBar : MonoBehaviour
             }
 
             var vs = transform.localScale;
-            vs.y = scale * 20.0f;
+            vs.y = 0.5f + scale * 40.0f;
             transform.localScale = vs;
         }
     }

@@ -36,7 +36,7 @@ public class AudioSunBurst : MonoBehaviour
 	private AudioSource audio;
 	AudioReceiver audioreceiver;
 	MeshRenderer meshr;
-	public float sensitivity = 0.1f;
+	public float sensitivity = 0.05f;
 
 	// Camera
 	private Camera maincam;
@@ -132,6 +132,9 @@ public class AudioSunBurst : MonoBehaviour
 	{
 		audio = GetComponent<AudioSource>();
 		audioreceiver = GetComponent<AudioReceiver>(); // Reference the audioreceiver script.
+
+		InvokeRepeating ("transformColor", 5f, 5f);
+
 	}
 	
 	void Update ()
@@ -152,11 +155,10 @@ public class AudioSunBurst : MonoBehaviour
 		// Advance the time count.
 		time += Time.deltaTime * speed;
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			iTween.ColorTo (gameObject, iTween.Hash("time", 3.0f, "NamedColorValue", "_Color", "easeType", "easeInOutQuad", "color", new Color(Random.value, Random.value, Random.value,1)));
-			//meshr.material.SetColor ("_Color", new Color(Random.value, Random.value, Random.value,1));
+		if (Input.GetKeyDown (KeyCode.RightArrow)) {
+			transformColor ();
 			Debug.Log ("color change");
-		} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
+		} else if (Input.GetKeyDown (KeyCode.Space)) {
 			changeCamPosition();
 		}
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
@@ -172,10 +174,14 @@ public class AudioSunBurst : MonoBehaviour
 
 	}
 
+	private void transformColor() {
+		iTween.ColorTo (gameObject, iTween.Hash("time", 3.0f, "NamedColorValue", "_Color", "easeType", "easeOutCubic", "color", new Color(Random.value, Random.value, Random.value,1)));
+	}
+
 	private void changeCamPosition() {
-		Vector3 R = Random.onUnitSphere*10;
+		Vector3 R = Random.onUnitSphere*Random.Range(2,10);
 		R.y = Mathf.Abs (R.y);
-		Vector3 center = new Vector3(0, 1, 0);
+		Vector3 center = new Vector3(Random.value*1.5f, 1, Random.value*1.5f);
 		Debug.Log (R);
 		camPosition = center + R;
 		//maincam.transform.position = camPosition;

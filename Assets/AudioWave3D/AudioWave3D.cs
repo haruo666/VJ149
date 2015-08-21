@@ -240,7 +240,7 @@ public class AudioWave3D : MonoBehaviour, AudioProcessor.AudioCallbacks {
 		//maincam.transform.LookAt(center);
 		//iTween.MoveTo(maincam.gameObject, camPosition, 1);
 		//iTween.LookTo(maincam.gameObject, center, 1);
-		iTween.MoveTo(maincam.gameObject, iTween.Hash("x", camPosition.x, "y", camPosition.y, "z", camPosition.z, "time", 0.6f, "looktarget", center));
+		iTween.MoveTo(maincam.gameObject, iTween.Hash("x", camPosition.x, "y", camPosition.y, "z", camPosition.z, "time", 0.6f, "looktarget", center, "easetype", "easeOutCubic"));
 		//maincam.transform.LookAt(center);
 		//iTween.LookTo(maincam.gameObject, center, 0.3f);
 	}
