@@ -60,7 +60,7 @@ public class AudioSpectrum : MonoBehaviour
     public float[] PeakLevels {
         get { return peakLevels; }
     }
-    
+
     public float[] MeanLevels {
         get { return meanLevels; }
     }
@@ -92,6 +92,7 @@ public class AudioSpectrum : MonoBehaviour
     {
         CheckBuffers ();
 		audio = GetComponent<AudioSource>();
+        Application.runInBackground = true;
     }
 
     void Update ()
