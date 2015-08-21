@@ -25,15 +25,18 @@ public class AdStarsCubeController : MonoBehaviour {
 		for (int i=0; i<500; i++) {
 			var cube = Instantiate (cubePrefab, new Vector3 (Random.Range (-20,20), Random.Range (15, 40), -16), Quaternion.Euler(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180))) as GameObject;
 		}
-		InvokeRepeating ("changeGravitation", 15f, 15f);
+		InvokeRepeating ("changeCamPosition", 15f, 15f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			//Debug.Log("Updating camera position.");
+			changeCamPosition();
+		}
 	}
 
-	void changeGravitation() {
+	void changeCamPosition() {
 		//gravity = new Vector3 (0, -2.0f, 0);
 		//Physics.gravity = gravity;
 		Debug.Log ("Changed gravitation!");
