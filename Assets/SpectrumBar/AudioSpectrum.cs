@@ -92,6 +92,8 @@ public class AudioSpectrum : MonoBehaviour
     {
         CheckBuffers ();
 		audio = GetComponent<AudioSource>();
+
+		Application.runInBackground = true;
     }
 
     void Update ()
