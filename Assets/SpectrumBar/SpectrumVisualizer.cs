@@ -74,12 +74,12 @@ public class SpectrumVisualizer : MonoBehaviour
 		}
 	}
 	
-	void OnGUI ()
+	/*void OnGUI ()
 	{
 		var text = "Current mode: " + barType + "\n";
 		text += "Click the screen to change the mode.";
 		GUI.Label (new Rect(0, 0, Screen.width, Screen.height), text, labelStyle);
-	}
+	}*/
 
 	private void changeCamPosition() {
 		Vector3 R = Random.onUnitSphere*100;
