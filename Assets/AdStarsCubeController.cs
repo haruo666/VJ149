@@ -5,6 +5,7 @@ public class AdStarsCubeController : MonoBehaviour {
 
 	public GameObject cubePrefab;
 	private Vector3 gravity;
+	public int N = 300;
 
 	// Camera
 	private Camera maincam;
@@ -22,10 +23,12 @@ public class AdStarsCubeController : MonoBehaviour {
 		gravity = new Vector3 (0, 0f, 0);
 		Physics.gravity = gravity;
 
-		for (int i=0; i<500; i++) {
+		for (int i=0; i<N; i++) {
 			var cube = Instantiate (cubePrefab, new Vector3 (Random.Range (-20,20), Random.Range (15, 40), -16), Quaternion.Euler(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180))) as GameObject;
+			var t = Random.Range (0.3f, 2.0f);
+			cube.transform.localScale = new Vector3(t, t, t);
 		}
-		InvokeRepeating ("changeCamPosition", 15f, 15f);
+		InvokeRepeating ("changeCamPosition", 5f, 5f);
 	}
 	
 	// Update is called once per frame
