@@ -6,7 +6,9 @@ public class AudioData : MonoBehaviour {
 
 	private AudioSource audio;
 	AudioReceiver audioreceiver;
-	GameObject cube;
+	GameObject cube1, cube2;
+	Color[] colors;
+	public float threshold = 1.0f;
 
 	public LineRenderer lr;
 	// Use this for initialization
@@ -17,7 +19,15 @@ public class AudioData : MonoBehaviour {
 
 		lr = GetComponent<LineRenderer> ();
 
-		cube = GameObject.Find ("Cube");
+		cube1 = GameObject.Find ("Cube1");
+		cube2 = GameObject.Find ("Cube2");
+
+		colors = new Color[5];
+		colors [0] = new Color (122/255, 188/255, 204/255, 1);
+		colors [1] = new Color (125/255, 147/255, 153/255, 1);
+		colors [2] = new Color (106/255, 255/255, 203/255, 1);
+		colors [3] = new Color (255/255, 179/255, 176/255, 1);
+		colors [4] = new Color (204/255, 85/255, 127/255, 1);
 
 	}
 	
@@ -33,7 +43,18 @@ public class AudioData : MonoBehaviour {
 		
 		//float volume = GetAveragedVolume ();
 		//Debug.Log (audioreceiver.loudness);
-		cube.transform.position = new Vector3 (0, audioreceiver.loudness * 5, 0);
+		//cube.transform.position = new Vector3 (0, audioreceiver.loudness * 5, 0);
+		//cube.transform.Rotate(Vector3.up * Time.deltaTime*20, Space.World);
+		//cube.transform.Rotate(new Vector3(1, 1, 1) * Time.deltaTime*20, Space.World);
+		Debug.Log(audioreceiver.loudness);
+
+		if (audioreceiver.loudness > threshold) {
+			//cube1.GetComponent<Renderer> ().material.color = colors[Mathf.RoundToInt (Random.value*6f)];
+			//cube2.GetComponent<Renderer> ().material.color = colors[Mathf.RoundToInt (Random.value*6f)];
+			cube1.GetComponent<Renderer> ().material.color = new Color(Random.value, Random.value, Random.value, Mathf.Max(1, audioreceiver.loudness));
+			cube2.GetComponent<Renderer> ().material.color = new Color(Random.value, Random.value, Random.value, Mathf.Max(1, audioreceiver.loudness));
+
+		}
 		//Debug.DrawLine (Vector3.zero, new Vector3 (1, 0, 0), Color.red);
 		float[] data = new float[256];
 		float a = 0;

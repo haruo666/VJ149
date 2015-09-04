@@ -23,6 +23,7 @@ public class AudioReceiver : MonoBehaviour {
 		audio.mute = true;
 		while (Microphone.GetPosition(null) <= 0) {}
 		audio.Play();
+		Application.runInBackground = true;
 	}
 
 	void Start() {

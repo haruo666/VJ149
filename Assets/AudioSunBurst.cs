@@ -177,7 +177,7 @@ public class AudioSunBurst : MonoBehaviour
 	}
 
 	private void transformColor() {
-		iTween.ColorTo (gameObject, iTween.Hash("time", 3.0f, "NamedColorValue", "_Color", "easeType", "easeOutCubic", "color", new Color(Random.value, Random.value, Random.value,1)));
+		iTween.ColorTo (gameObject, iTween.Hash("time", 1.0f, "NamedColorValue", "_Color", "easeType", "easeOutCubic", "color", new Color(Random.value, Random.value, Random.value,1)));
 	}
 
 	private void changeCamPosition() {
